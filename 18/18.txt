@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <header>
+      <h1>СбЫр-банк</h1>
+    </header>
+
+    <main id="main">
+      <form class="inputs" action="">
+        <article class="name_object">
+          <ul>
+            <li>Доход без налога</li>
+            <li>Расходы на питание</li>
+            <li>Расходы на комунальные</li>
+            <li>Расходы на одежду</li>
+          </ul>
+        </article>
+
+        <section class="block_input">
+          <input id="i1" type="number" />
+          <input id="i2" type="number" />
+          <input id="i3" type="number" />
+          <input id="i4" type="number" />
+        </section>
+      </form>
+      <button class="on" type="submit" id="send">Подсчитать</button>
+    </main>
+
+    <script src="index.js"></script>
+  </body>
+</html>
+
+////index.js
+
+let Main = document.getElementById("main");
+const Inp1 = document.getElementById("i1");
+
+const Inp2 = document.getElementById("i2");
+const Inp3 = document.getElementById("i3");
+const Inp4 = document.getElementById("i4");
+document.getElementById("send").addEventListener("click", () => {
+  if (document.getElementById("send").className == "on") {
+    document.getElementById("send").className = "off";
+    let Otchet = document.createElement("section");
+    Otchet.setAttribute("id", "otchet");
+    let Name = document.createElement("section");
+    Name.setAttribute("class", "Besnaloga");
+    let sale = document.createElement("section");
+    sale.setAttribute("class", "sale");
+    let sum = Inp1.value - (Inp1.value * 13) / 100;
+    console.log(sum);
+    sale.innerHTML =
+      Inp1.value -
+      (Inp1.value * 13) / 100 +
+      " ₽<br><br>" +
+      (Math.ceil((Inp2.value / sum) * 100) + "%<br><br>") +
+      (Math.ceil((Inp3.value / sum) * 100) + "%<br><br>") +
+      (Math.ceil((Inp4.value / sum) * 100) + "%<br>");
+    Name.innerHTML =
+      "Bаш итоговый доход с учетом налога (13%)<br><br>Затраты на еду<br><br>Затраты на  комунальные услуги <br><br>Затраты на одежду";
+    Otchet.appendChild(Name);
+    Otchet.appendChild(sale);
+    document.body.appendChild(Otchet);
+  } else {
+    document.getElementById("send").className = "on";
+    document.getElementById("otchet").remove();
+  }
+});
+
+
+////index.css
+
+body {
+  margin: 0;
+  background-color: rgb(251, 242, 230);
+}
+header {
+  width: auto;
+  height: 70px;
+  background-color: rgb(51, 207, 48);
+  padding: 10px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+header > h1 {
+  margin: 0;
+  color: white;
+  font-size: 60px;
+}
+
+.inputs {
+  display: grid;
+  grid-template-columns: 300px 300px;
+  margin-top: 100px;
+  grid-column-gap: 20px;
+  margin-left: 100px;
+}
+
+.block_input {
+  grid-row-gap: 0px;
+  display: grid;
+}
+
+li {
+  line-height: 4;
+  font-size: 22px;
+}
+
+input {
+  width: 300px;
+  height: 50px;
+  margin-top: 20px;
+  outline: none;
+  border-radius: 5px;
+  font-size: 25px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+input:hover {
+  width: 300px;
+  height: 50px;
+  margin-top: 20px;
+  outline: none;
+  border-radius: 5px;
+  font-size: 25px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
+ul {
+  margin: 0;
+}
+
+.on {
+  margin-top: 30px;
+  margin-left: 120px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  font-size: 22px;
+  background-color: rgb(1, 182, 1);
+  color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+.on:hover {
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  font-size: 25px;
+  background-color: rgb(3, 199, 3);
+  color: white;
+  transform: scale(1.1);
+  transition: 0.2s;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+.off {
+  margin-top: 30px;
+  margin-left: 120px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  font-size: 22px;
+  background-color: rgb(1, 182, 1);
+  color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+#otchet {
+  margin-top: 40px;
+  margin-left: 120px;
+  border-radius: 20px;
+  width: 1100px;
+  height: 200px;
+  padding: 30px;
+  background-color: white;
+  font-size: 30px;
+  display: grid;
+  grid-template-columns: 400px 400px;
+}
+
+.Besnaloga {
+  font-size: 20px;
+}
+
+.sale {
+  font-size: 20px;
+}
+
