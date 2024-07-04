@@ -1,0 +1,59 @@
+let Vibor = document.querySelector("#Choice")
+let Colors = document.querySelectorAll(".Colorz")
+let Buton = document.querySelector("#Btn")
+
+
+Buton.addEventListener("click", () => {
+
+    let ColorPies = '0123456789ABCDEF';
+    var Hashtag = '#';
+    for (let i = 0; i < 6; i++) {
+        Hashtag += ColorPies[Math.floor(Math.random() * 16)];
+    }
+
+    let ColorPiesTwo = '0123456789ABCDEF';
+    var HashtagTwo = '#';
+    for (let i = 0; i < 6; i++) {
+        HashtagTwo += ColorPiesTwo[Math.floor(Math.random() * 16)];
+    }
+
+    let ColorPiesThree = '0123456789ABCDEF';
+    var HashtagThree = '#';
+    for (let i = 0; i < 6; i++) {
+        HashtagThree += ColorPiesThree[Math.floor(Math.random() * 16)];
+    }
+
+    let ColorPiesFour = '0123456789ABCDEF';
+    var HashtagFour = '#';
+    for (let i = 0; i < 6; i++) {
+        HashtagFour += ColorPiesFour[Math.floor(Math.random() * 16)];
+    }
+
+    let ColorPiesFive = '0123456789ABCDEF';
+    var HashtagFive = '#';
+    for (let i = 0; i < 6; i++) {
+        HashtagFive += ColorPiesFive[Math.floor(Math.random() * 16)];
+    }
+
+    let ColorPiesSix = '0123456789ABCDEF';
+    var HashtagSix = '#';
+    for (let i = 0; i < 6; i++) {
+        HashtagSix += ColorPiesSix[Math.floor(Math.random() * 16)];
+    }
+
+
+
+    if (Vibor.value == "Palitra") {
+        Colors[0].value = Hashtag;
+        Colors[1].value = HashtagTwo;
+        Colors[2].value = HashtagThree;
+        Colors[3].value = HashtagFour;
+        Colors[4].value = HashtagFive;
+        Colors[5].value = HashtagSix;
+
+    } else {
+        Colors[0].value = Hashtag;
+    }
+})
+
+
