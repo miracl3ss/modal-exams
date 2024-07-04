@@ -1,0 +1,14 @@
+2. Разработка простого приложения для вычисления выражений в различных системах счисления
+// Функция для вычисления выражения в десятичной системе счисления
+function evaluateDecimalExpression(expression) {
+    return eval(expression);
+}
+
+// Функция для вычисления выражения в двоичной системе счисления
+function evaluateBinaryExpression(expression) {
+    return parseInt(expression, 2);
+}
+
+// Пример использования функций
+console.log(evaluateDecimalExpression("10 + 5")); // Результат: 15
+console.log(evaluateBinaryExpression("1010 + 101")); // Результат: 10
